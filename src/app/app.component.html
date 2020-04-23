@@ -1,0 +1,15 @@
+
+<!-- <app-main-nav></app-main-nav> -->
+<mat-sidenav-container >
+  <mat-sidenav #drawer mode="side" opened>
+    <h3>News Portal Admin</h3>
+    <mat-nav-list *ngFor="let menu of menus">
+      <a mat-list-item style="height: 35px;" href="#" [routerLink]="menu.link">{{menu.title}}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="tool_bar" (click)="drawer.toggle()">News Admin</mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container> 

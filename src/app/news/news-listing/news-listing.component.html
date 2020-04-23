@@ -1,0 +1,32 @@
+<!-- <mat-toolbar>News-listing</mat-toolbar> -->
+<button class="buttom" routerLink="{{route.add}}">Add News</button>
+<mat-spinner *ngIf="!newsList.length" style="margin: auto"></mat-spinner>
+
+<table mat-table [dataSource]="newsList" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon style="cursor: pointer; margin-right:10px" routerLink="{{route.edit}}/{{element.id}}">edit</mat-icon>
+        <mat-icon style="cursor: pointer" routerLink="{{route.view}}/{{element.id}}">visibility</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div style="margin: 15px" *ngIf="!newsList.length">
+    No Data Found
+</div>

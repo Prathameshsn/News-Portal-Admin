@@ -1,0 +1,14 @@
+<div>
+<label><b>Title:</b></label>
+<div>{{newsDetails.title}}</div><br><br>
+<label><b>Description:</b></label>
+<div>{{newsDetails.description}}</div><br><br>
+<label><b>Category:</b></label>
+<div>{{newsDetails.category}}</div><br><br>
+<label><b>Image:</b></label><br>
+<img style="height:200px" src ="{{environment.apiURL}}/{{newsDetails.image_url}}">
+
+<br><br><br>
+    <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+    <button mat-raised-button color="primary" routerLink="/">Cancel</button>
+</div>
